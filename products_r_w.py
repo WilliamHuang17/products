@@ -1,13 +1,19 @@
-# products, 2d array
+import random
+import os
+
+if os.path.isfile('product.csv'):
+	print('file product.csv exists')
+else:
+	print('file product.csv not exists \n')
+	print('teminated \n')
+	quit()
+# check if file exists
 product_list = []
 with open('product.csv', 'r') as f:
 	for p in f:
 		if 'a,1' in p:
 			continue
-		#s = p.strip().split(',')
-		#print(s)
 		name, price =  p.strip().split(',')
-		#product_list.append(s)
 		product_list.append([name, price])		
 while True:
 	name = input('product name ? ')
@@ -18,10 +24,4 @@ while True:
 with open('product.csv', 'w')	as f:
 	for p in product_list:
 		f.write(p[0] + ',' + p[1] + '\n')
-
-
-
-
-
-
 
